@@ -8,12 +8,21 @@ else ()
 endif ()
 
 # Load settings for an external project.
+
+
+find_package (Boost COMPONENTS program_options REQUIRED)
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+
+
 find_package (GTest REQUIRED)
 find_package (Threads REQUIRED)
 
 include_directories (
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+include_directories(${Boost_INCLUDE_DIRS})
 
 # Copy a file to another location and modify its contents.
 configure_file(version.h.in version.h)
@@ -29,7 +38,7 @@ file (GLOB MAIN_INCLUDES
         ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h*
         )
 
-#
+
 #source_group("src" FILES ${MAIN_SRC})
 #source_group("test" FILES ${MAIN_TEST})
 #source_group("include" FILES ${MAIN_INCLUDES})
@@ -50,7 +59,9 @@ set_target_properties(bayan bayan_lib gtest PROPERTIES
 
 # Add include directories to a target.
 # CMAKE_BINARY_DIR - The path to the top level of the build tree.
-target_include_directories(bayan PRIVATE "${CMAKE_BINARY_DIR}" )
+target_include_directories(bayan PRIVATE "${CMAKE_BINARY_DIR}" ${Boost_INCLUDE_DIRS})
+
+
 
 # Add include directories to the build.
 include_directories(${GTEST_INCLUDE_DIR})
@@ -60,7 +71,7 @@ set_target_properties(gtest PROPERTIES
     INCLUDE_DIRECTORIES ${GTEST_INCLUDE_DIRS}
 )
 
-target_link_libraries(bayan PRIVATE bayan_lib)
+target_link_libraries(bayan PRIVATE bayan_lib ${Boost_LIBRARIES})
 target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib ${GTEST_MAIN_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
 # Add compile options to a target.
