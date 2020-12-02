@@ -10,7 +10,7 @@ endif ()
 # Load settings for an external project.
 
 
-find_package (Boost COMPONENTS program_options REQUIRED)
+find_package (Boost COMPONENTS program_options filesystem regex REQUIRED)
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
@@ -45,7 +45,7 @@ file (GLOB MAIN_INCLUDES
 
 
 # Add a library to the project using the specified source files.
-add_executable(bayan src/bayan.cpp src/lib.cpp)
+add_executable(bayan src/bayan.cpp src/lib.cpp src/fileparser.cpp)
 add_library(bayan_lib src/lib.cpp )
 # Add an executable to the project using the specified source files.
 add_executable(gtest test/gtest.cpp src/lib.cpp)
