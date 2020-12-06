@@ -14,7 +14,7 @@ InputData parse_command_line(int argc, const char *argv[])
     try {
         po::options_description desc{"Options"};
         desc.add_options()
-                ("help,h", "This screen")
+                ("help,h", "Help")
                 ("input,i",  po::value<path_vec >(), "Input directories")
                 ("exclude,e",  po::value<path_vec>(), "Excluded inner directories")
                 ("level,l",  po::value<uint>(), "Scan level")

@@ -23,7 +23,7 @@ public:
             file_size(0),
             block_size(5),
             file_mask(""),
-            hash_algorithm(""){};
+            hash_algorithm("crc32"){};
 public:
     path_vec target_directories;
     path_vec exclude_directories;

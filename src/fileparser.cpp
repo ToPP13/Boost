@@ -129,10 +129,6 @@ std::string FileParser::calc_hash(const char * word_to_hash, const uint block_si
     {
         result_hash = calc_hash_md5(word_to_hash, block_size);
     }
-
-//    for (uint i=0;i<block_size;i++)
-//        cout << word_to_hash[i];
-//    cout << " with " << hash_alg << " into " << result_hash << endl;
     return result_hash;
 }
 
@@ -207,24 +203,15 @@ void FileParser::find_dublicates(const InputData & data)
     auto result_dirs = get_target_dirs(data.target_directories,
                                     data.exclude_directories,
                                     data.depth_level);
-//    for (auto d: all_dirs)
-//        std::cout << d.string() << std::endl;
 
     auto result_files = get_target_files(result_dirs, data.file_mask, data.file_size);
-//    for (auto f: result_files)
-//        std::cout << f << std::endl;
 
-    // map that stores vector of dublicates for each path
     std::map<path, std::vector<CustomFile>> file_dublicates;
-
-    // need file_data because CustomFile has vector inside and cause of that
-    // it is impossible/hard to make CustomFile as key
     std::map<path, CustomFile> file_data;
 
 
     for (auto target_file: result_files)
     {
-//        cout << "Process: " << target_file.string() << endl;
         CustomFile cur_file_data;
         cur_file_data.file_size = file_size(target_file);
         cur_file_data.file_path = target_file;
