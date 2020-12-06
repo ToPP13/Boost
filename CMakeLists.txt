@@ -38,8 +38,8 @@ file (GLOB MAIN_INCLUDES
 
 
 # Add a library to the project using the specified source files.
-add_executable(bayan src/bayan.cpp src/lib.cpp src/fileparser.cpp)
 add_library(bayan_lib src/lib.cpp )
+add_executable(bayan src/bayan.cpp src/lib.cpp src/fileparser.cpp)
 # Add an executable to the project using the specified source files.
 add_executable(gtest test/gtest.cpp src/lib.cpp)
 
@@ -53,6 +53,7 @@ set_target_properties(bayan bayan_lib gtest PROPERTIES
 # Add include directories to a target.
 # CMAKE_BINARY_DIR - The path to the top level of the build tree.
 target_include_directories(bayan PRIVATE "${CMAKE_BINARY_DIR}" ${Boost_INCLUDE_DIRS})
+target_include_directories(bayan_lib PRIVATE "${CMAKE_BINARY_DIR}" ${Boost_INCLUDE_DIRS})
 
 
 

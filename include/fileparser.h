@@ -2,15 +2,16 @@
 // Created by kirill on 02.12.2020.
 //
 
-#include "inputdata.h"
-#include <string>
-
 #include <boost/uuid/uuid.hpp>
 #include <boost/regex.hpp>
 #include <boost/uuid/detail/md5.hpp>
 #include <boost/algorithm/hex.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/crc.hpp>
+
+#include "inputdata.h"
+#include <string>
+
 #pragma once
 
 
