@@ -39,11 +39,6 @@ file (GLOB MAIN_INCLUDES
         )
 
 
-#source_group("src" FILES ${MAIN_SRC})
-#source_group("test" FILES ${MAIN_TEST})
-#source_group("include" FILES ${MAIN_INCLUDES})
-
-
 # Add a library to the project using the specified source files.
 add_executable(bayan src/bayan.cpp src/lib.cpp src/fileparser.cpp)
 add_library(bayan_lib src/lib.cpp )

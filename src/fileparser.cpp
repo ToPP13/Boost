@@ -9,9 +9,8 @@ using namespace boost::filesystem;
 using std::cout;
 using std::endl;
 
+#include <boost/uuid/uuid.hpp>
 #include <boost/regex.hpp>
-#include <boost/uuid/detail/md5.hpp>
-#include <boost/algorithm/hex.hpp>
 #include <boost/uuid/detail/md5.hpp>
 #include <boost/algorithm/hex.hpp>
 
