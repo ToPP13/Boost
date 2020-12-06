@@ -19,9 +19,7 @@ set(Boost_USE_STATIC_RUNTIME OFF)
 find_package (GTest REQUIRED)
 find_package (Threads REQUIRED)
 
-include_directories (
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+include_directories (${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # Copy a file to another location and modify its contents.
