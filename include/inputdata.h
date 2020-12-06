@@ -17,7 +17,7 @@ typedef std::vector<std::string> hash;
 class InputData {
 public:
     InputData():
-            target_directories({"."}),
+            target_directories({}),
             exclude_directories({}),
             depth_level(0),
             file_size(0),
