@@ -61,8 +61,6 @@ set_target_properties(bayan bayan_lib gtest PROPERTIES
 # CMAKE_BINARY_DIR - The path to the top level of the build tree.
 target_include_directories(bayan PRIVATE "${CMAKE_BINARY_DIR}" ${Boost_INCLUDE_DIRS})
 
-
-
 # Add include directories to the build.
 include_directories(${GTEST_INCLUDE_DIR})
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
@@ -72,7 +70,7 @@ set_target_properties(gtest PROPERTIES
 )
 
 target_link_libraries(bayan PRIVATE bayan_lib ${Boost_LIBRARIES})
-target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib ${GTEST_MAIN_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(gtest ${GTEST_LIBRARIES})
 
 # Add compile options to a target.
 if (MSVC)
