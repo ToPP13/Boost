@@ -10,7 +10,7 @@ endif ()
 # Load settings for an external project.
 
 
-find_package (Boost COMPONENTS program_options filesystem regex REQUIRED)
+find_package (Boost 1.66 COMPONENTS program_options filesystem regex REQUIRED)
 set(Boost_USE_STATIC_LIBS OFF)
 set(Boost_USE_MULTITHREADED ON)
 set(Boost_USE_STATIC_RUNTIME OFF)
