@@ -65,8 +65,8 @@ set_target_properties(gtest PROPERTIES
     INCLUDE_DIRECTORIES ${GTEST_INCLUDE_DIRS}
 )
 
-target_link_libraries(bayan PRIVATE bayan_lib ${Boost_LIBRARIES})
-target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib ${GTEST_MAIN_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(bayan PRIVATE bayan_lib uuid ${Boost_LIBRARIES})
+target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib uuid ${GTEST_MAIN_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
 # Add compile options to a target.
 if (MSVC)
