@@ -58,6 +58,7 @@ target_include_directories(bayan_lib PRIVATE "${CMAKE_BINARY_DIR}" ${Boost_INCLU
 
 
 # Add include directories to the build.
+include_directories(/usr/local/include/)
 include_directories(${GTEST_INCLUDE_DIR})
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
@@ -65,8 +66,8 @@ set_target_properties(gtest PROPERTIES
     INCLUDE_DIRECTORIES ${GTEST_INCLUDE_DIRS}
 )
 
-target_link_libraries(bayan PRIVATE bayan_lib uuid ${Boost_LIBRARIES})
-target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib uuid ${GTEST_MAIN_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(bayan PRIVATE bayan_lib ${Boost_LIBRARIES})
+target_link_libraries(gtest ${GTEST_LIBRARIES} bayan_lib ${GTEST_MAIN_LIBRARIES} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
 
 # Add compile options to a target.
 if (MSVC)
