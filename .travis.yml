@@ -1,5 +1,6 @@
 language: cpp
 before_script:
+- echo "deb http://archive.ubuntu.com/ubuntu xenial main universe" | sudo tee -a /etc/apt/sources.list
 - sudo apt update
 - sudo apt-get install cmake
 - sudo apt-get install libpthread-stubs0-dev
