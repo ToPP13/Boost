@@ -1,10 +1,9 @@
 language: cpp
 before_script:
+- sudo apt update
 - sudo apt-get install cmake
 - sudo apt-get install libpthread-stubs0-dev
 - sudo apt-get install libgtest-dev -y
-- sudo add-apt-repository ppa:mhier/libboost-latest
-- sudo apt update
 - sudo apt-get install libboost-test-dev -y
 - sudo apt-get install libboost-all-dev
 - cd /usr/src/gtest
